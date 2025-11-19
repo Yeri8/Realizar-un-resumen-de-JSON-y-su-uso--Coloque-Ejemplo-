@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSON y su Uso - Resumen</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    pre {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    ul { margin-left: 20px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>JSON y su Uso</h1>
+
+    <p><strong>JSON (JavaScript Object Notation)</strong> es un formato de texto ligero para representar datos estructurados. Es fácil de leer y escribir para humanos y fácil de parsear por máquinas. Aunque nació en JavaScript, hoy es universal.</p>
+
+    <h2>Características Clave</h2>
+    <ul>
+      <li>Estructura basada en objetos (clave: valor) y arrays.</li>
+      <li>Tipos simples: cadenas, números, booleanos, null, objetos y arrays.</li>
+      <li>Sintaxis concisa y sin etiquetas de cierre como XML.</li>
+      <li>Ideal en APIs REST y comunicación cliente-servidor.</li>
+    </ul>
+
+    <h2>Usos Principales</h2>
+    <ul>
+      <li>APIs REST / comunicación entre frontend y backend.</li>
+      <li>Archivos de configuración (.json).</li>
+      <li>Bases de datos NoSQL como MongoDB.</li>
+      <li>Mensajería y serialización.</li>
+      <li>Intercambio de datos en móviles y microservicios.</li>
+    </ul>
+
+    <h2>Ventajas / Desventajas</h2>
+    <p><strong>Ventajas:</strong> simple, compacto, rápido de parsear, ampliamente soportado.<br>
+    <strong>Desventajas:</strong> no tiene un sistema de esquemas tan formal como XSD; menos expresivo que XML para documentos muy complejos.</p>
+
+    <h2>Ejemplo Sencillo</h2>
+    <pre>
+{
+  "note": {
+    "to": "María",
+    "from": "Juan",
+    "heading": {
+      "type": "reminder",
+      "text": "Recordatorio"
+    },
+    "body": "Compra pan y leche."
+  }
+}
+    </pre>
+
+    <h2>Explicación Rápida</h2>
+    <ul>
+      <li><code>note</code> es un objeto que contiene <code>to</code>, <code>from</code>, <code>heading</code> y <code>body</code>.</li>
+      <li><code>heading</code> es otro objeto con un atributo <code>type</code> y el texto en <code>text</code>.</li>
+      <li>JSON usa llaves <code>{}</code> para objetos y corchetes <code>[]</code> para arrays.</li>
+    </ul>
+
+    <h2>Cómo Leer / Parsear</h2>
+
+    <h3>JavaScript</h3>
+    <pre>
+const jsonString = `{
+  "note": {
+    "to": "María",
+    "from": "Juan",
+    "heading": { "type": "reminder", "text": "Recordatorio" },
+    "body": "Compra pan y leche."
+  }
+}`;
+
+const data = JSON.parse(jsonString);
+console.log(data.note.to); // "María"
+    </pre>
+
+    <h3>Python</h3>
+    <pre>
+import json
+json_string = '{"note": {"to":"María","from":"Juan","heading":{"type":"reminder","text":"Recordatorio"},"body":"Compra pan y leche."}}'
+data = json.loads(json_string)
+print(data['note']['from'])  # Juan
+    </pre>
+
+    <h2>Recomendaciones de Uso</h2>
+    <ul>
+      <li>Usar JSON para el intercambio de datos entre apps web o móviles.</li>
+      <li>Usar claves claras y descriptivas.</li>
+      <li>Incluir solo la información necesaria.</li>
+      <li>Validar formato (ejemplo: JSONLint).</li>
+      <li>Asegurarse de usar UTF-8 y evitar comentarios.</li>
+    </ul>
+
+  </div>
+</body>
+</html>
